@@ -1,12 +1,8 @@
 package com.ramsbaby.parser.model;
 
-import com.ramsbaby.parser.common.type.StatusCode;
-import com.ramsbaby.parser.common.type.WebBrowser;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 /**
  * @author RAMSBABY
