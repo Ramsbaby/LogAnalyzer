@@ -8,6 +8,7 @@ import java.io.IOException;
 /**
  * @author RAMSBABY
  * @date 2021-07-21 오전 1:52
+ * 로그를 읽어들임
  */
 public class LogReader {
     private final static String INPUT_LOG = "input.log";
