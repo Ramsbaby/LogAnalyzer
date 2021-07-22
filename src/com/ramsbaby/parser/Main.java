@@ -6,6 +6,7 @@ import com.ramsbaby.parser.service.ioService.LogReader;
 import com.ramsbaby.parser.service.ioService.LogWriter;
 import com.ramsbaby.parser.service.parceService.LogParcer;
 import com.ramsbaby.parser.service.statisService.LogStatistic;
+import com.ramsbaby.parser.utils.OutputFormMaker;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -13,29 +14,30 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @author : RAMSBABY
  * @name : Main
  * @date : 2021-07-21 오전 1:45
- * @author : RAMSBABY
-**/
+ **/
 public class Main {
-    //1.로그파일을 읽어들임
-    //2.데이터들을 가공
-    //3.아웃풋 파일로 출력한다.
     public static void main(String[] args) throws IOException, ParseException {
         //파싱
         String str = new LogReader().readLog("");
         LogParcer logParcer = new LogParcer<StatusCode, List<LogModel>>();
         Map<StatusCode, List<LogModel>> logMaps = logParcer.parce(str);
 
-
-        //가공
+        //통계 데이터 추려내기
         LogStatistic logStatistic = new LogStatistic();
-        logStatistic.getMaxApiKey(logMaps);
+        String maxCalledApiKey = logStatistic.getMaxApiKey(logMaps);
+        Map<String, Integer> top3ServiceIdMap = logStatistic.getTop3ServiceIdAndCnt(logMaps);
+        Map<String, Double> rateWebBrowserMap = logStatistic.getRateWebBrowser(logMaps);
 
+        //출력 폼 만들기
+        OutputFormMaker outputFormMaker = new OutputFormMaker();
+        String outputStr = outputFormMaker.makeForm(maxCalledApiKey, top3ServiceIdMap, rateWebBrowserMap);
 
         //출력
-
-//        return LogWriter.write();
+        LogWriter logWriter = new LogWriter();
+        logWriter.writeLog(outputStr);
     }
 
 }

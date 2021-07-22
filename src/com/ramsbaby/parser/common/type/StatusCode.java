@@ -3,7 +3,7 @@ package com.ramsbaby.parser.common.type;
 import lombok.Getter;
 
 /**
- * @author : ramsbaby
+ * @author : RAMSBABY
  * @name : StatusCode.java
  * @date : 2021-07-21 오전 3:12
  **/
