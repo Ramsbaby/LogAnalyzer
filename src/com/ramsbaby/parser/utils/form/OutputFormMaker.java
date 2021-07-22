@@ -26,7 +26,7 @@ public class OutputFormMaker implements FormMaker {
 
         sBuilder.append("상위 3개의 API Service ID와 각각의 요청 수\n");
         top3ServiceIdMap.forEach((key, value) -> sBuilder.append(key).append(" : ").append(value).append("\n"));
-        sBuilder.append("\n\n");
+        sBuilder.append("\n");
 
         sBuilder.append("웹브라우저별 사용 비율\n");
         rateWebBrowserMap.forEach((key, value) -> sBuilder.append(key).append(" : ").append(Math.round(value)).append("%").append("\n"));
