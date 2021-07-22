@@ -23,7 +23,7 @@ public class UrlModel {
     private String queryParam;
 
     /**
-     * 입력받은 URL을 대상으로 정상URL여부 판단
+     * 입력받은 URL을 대상으로 정상URL여부 판단(생성자+필터)
      *
      * @param urlStr 로그의 URL원본
      * @return UrlModel
