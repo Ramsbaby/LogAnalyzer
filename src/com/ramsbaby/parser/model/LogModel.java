@@ -28,6 +28,12 @@ public class LogModel {
     private WebBrowser webBrower;
     private Date date;
 
+    /**
+     * LogModel 생성 메소드
+     *
+     * @param eachLog 개별 로그
+     * @return LogModel
+     */
     public static LogModel of(String[] eachLog) throws MalformedURLException, ParseException {
         //응답코드
         StatusCode statusCode = StatusCode.valueOf(Integer.parseInt(eachLog[0]));

@@ -16,6 +16,11 @@ import java.io.IOException;
 public class LogWriter {
     private final String OUTPUT_FILENAME = "output.log";
 
+    /**
+     * 가공된 데이터 기반으로 분석로그파일생성
+     *
+     * @param outputStr 가공된 데이터
+     */
     public void writeLog(String outputStr) {
         File file = new File(OUTPUT_FILENAME);
 

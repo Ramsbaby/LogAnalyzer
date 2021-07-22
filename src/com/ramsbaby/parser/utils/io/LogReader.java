@@ -13,6 +13,12 @@ import java.io.IOException;
 public class LogReader {
     private final String INPUT_FILENAME = "input.log";
 
+    /**
+     * 입력경로 기준 파일 읽어들이기
+     *
+     * @param path path
+     * @return 텍스트로 변환
+     */
     public String readLog(String path) throws IOException {
         StringBuilder inputLogStr = new StringBuilder();
         BufferedReader reader = new BufferedReader(new FileReader(path + INPUT_FILENAME));

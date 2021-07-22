@@ -19,6 +19,12 @@ import java.util.Map;
  **/
 @NoArgsConstructor
 public class LogParser<K, V> implements Parser<K, V> {
+    /**
+     * 입력받은 로그파일 데이터들을 Map형태로 변환
+     *
+     * @param log 입력 로그파일 String
+     * @return Map<K, List < V>>
+     */
     @Override
     public Map<K, List<V>> parse(String log) throws MalformedURLException, ParseException {
         Map<K, List<V>> readLogMap = new HashMap<>();

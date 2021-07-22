@@ -2,11 +2,11 @@ package com.ramsbaby.parser;
 
 import com.ramsbaby.parser.common.type.StatusCode;
 import com.ramsbaby.parser.model.LogModel;
+import com.ramsbaby.parser.service.statisService.LogStatistic;
+import com.ramsbaby.parser.utils.form.OutputFormMaker;
 import com.ramsbaby.parser.utils.io.LogReader;
 import com.ramsbaby.parser.utils.io.LogWriter;
 import com.ramsbaby.parser.utils.parse.LogParser;
-import com.ramsbaby.parser.service.statisService.LogStatistic;
-import com.ramsbaby.parser.utils.form.OutputFormMaker;
 
 import java.io.IOException;
 import java.text.ParseException;

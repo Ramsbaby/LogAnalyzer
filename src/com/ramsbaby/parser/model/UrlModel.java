@@ -22,6 +22,12 @@ public class UrlModel {
     private String apiKey;
     private String queryParam;
 
+    /**
+     * 입력받은 URL을 대상으로 정상URL여부 판단
+     *
+     * @param urlStr 로그의 URL원본
+     * @return UrlModel
+     */
     public static UrlModel create(String urlStr) throws MalformedURLException {
         String urlBody = null;
         String serviceID = null;
@@ -45,8 +51,7 @@ public class UrlModel {
         if (queryParam != null) {
             if (url.getQuery().split("&")[0].split("=")[0].equals("apikey") == false) // apikey가 없는 경우
             {
-            }
-            else if (url.getQuery().split("&")[1].split("=")[0].equals("q") == false) {// apikey가 있고, 검색어(q)가 잘못된 경우
+            } else if (url.getQuery().split("&")[1].split("=")[0].equals("q") == false) {// apikey가 있고, 검색어(q)가 잘못된 경우
                 //apiKey
                 apiKey = url.getQuery().split("&")[0].split("=")[1];
                 queryParam = null;
