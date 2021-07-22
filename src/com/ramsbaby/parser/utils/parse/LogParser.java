@@ -1,4 +1,4 @@
-package com.ramsbaby.parser.service.parceService;
+package com.ramsbaby.parser.utils.parse;
 
 import com.ramsbaby.parser.model.LogModel;
 import lombok.NoArgsConstructor;

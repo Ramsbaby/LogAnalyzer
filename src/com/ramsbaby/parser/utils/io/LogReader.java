@@ -1,4 +1,4 @@
-package com.ramsbaby.parser.service.ioService;
+package com.ramsbaby.parser.utils.io;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

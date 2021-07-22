@@ -1,4 +1,4 @@
-package com.ramsbaby.parser.service.parceService;
+package com.ramsbaby.parser.utils.parse;
 
 import java.net.MalformedURLException;
 import java.text.ParseException;

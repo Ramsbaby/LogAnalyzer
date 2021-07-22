@@ -2,8 +2,8 @@ package com.ramsbaby.parser.service.statisService;
 
 import com.ramsbaby.parser.common.type.StatusCode;
 import com.ramsbaby.parser.model.LogModel;
-import com.ramsbaby.parser.service.ioService.LogReader;
-import com.ramsbaby.parser.service.parceService.LogParser;
+import com.ramsbaby.parser.utils.io.LogReader;
+import com.ramsbaby.parser.utils.parse.LogParser;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
