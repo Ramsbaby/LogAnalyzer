@@ -29,15 +29,21 @@ public class LogModel {
     private Date date;
 
     public static LogModel of(String[] eachLog) throws MalformedURLException, ParseException {
+        //응답코드
+        StatusCode statusCode = StatusCode.valueOf(Integer.parseInt(eachLog[0]));
 
+        //URL
+        UrlModel urlModel = UrlModel.create(eachLog[1]);
+
+        //WebBrowser
+        WebBrowser webBrowser = WebBrowser.valueOf(eachLog[2]);
+
+        //날짜
         SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sDateFormat.parse(eachLog[3]);
 
-        StatusCode statusCode = StatusCode.valueOf(Integer.parseInt(eachLog[0]));
-        UrlModel urlModel = UrlModel.create(eachLog[1]);
-
         assert statusCode != null;
-        return new LogModel(statusCode, urlModel, WebBrowser.valueOf(eachLog[2]), date);
+        return new LogModel(statusCode, urlModel, webBrowser, date);
     }
 
 }

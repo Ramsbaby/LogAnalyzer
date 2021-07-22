@@ -30,13 +30,16 @@ public class UrlModel {
 
         URL url = new URL(urlStr);
 
+        //urlBody
         urlBody = urlStr;
 
+        //serviceID
         serviceID = url.getPath().split("/")[2];
 
         //serviceId 예외처리
         if (serviceID.contains("&") || serviceID.contains("=")) serviceID = null;
 
+        //queryParam
         queryParam = Optional.ofNullable(url.getQuery()).orElse(null);
 
         if (queryParam != null) {
@@ -44,9 +47,11 @@ public class UrlModel {
             {
             }
             else if (url.getQuery().split("&")[1].split("=")[0].equals("q") == false) {// apikey가 있고, 검색어(q)가 잘못된 경우
+                //apiKey
                 apiKey = url.getQuery().split("&")[0].split("=")[1];
                 queryParam = null;
             } else {// 그 이외의 경우
+                //apiKey
                 apiKey = url.getQuery().split("&")[0].split("=")[1];
             }
         }

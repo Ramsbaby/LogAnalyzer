@@ -14,7 +14,6 @@ public class LogReader {
     private final String INPUT_FILENAME = "input.log";
 
     public String readLog(String path) throws IOException {
-
         StringBuilder inputLogStr = new StringBuilder();
         BufferedReader reader = new BufferedReader(new FileReader(path + INPUT_FILENAME));
 
@@ -23,6 +22,5 @@ public class LogReader {
             inputLogStr.append(logLine).append("\n");
 
         return inputLogStr.toString();
-
     }
 }
