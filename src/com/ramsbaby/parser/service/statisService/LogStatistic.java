@@ -13,7 +13,11 @@ public class LogStatistic implements Statistic {
     public int getMaxApiKey(Map<StatusCode, List<LogModel>> logMaps) {
 
         HashMap<String, Integer> maxCnt = new HashMap<>();
-        logMaps.get(StatusCode.SUCCESS).stream().forEach(System.out::println);
+        logMaps.get(StatusCode.SUCCESS).stream().forEach(item -> {
+            String apikey = item.getUrl().getApiKey();
+            maxCnt.getOrDefault(item.getUrl().getApiKey(), 0);
+            maxCnt.put(apikey, maxCnt.get(apikey).intValue()+1);
+        });
 //        logMaps.get(StatusCode.SUCCESS).value().stream().map(item -> {
 //            String apikey = item.getUrl().getApiKey();
 //            maxCnt.getOrDefault(item.getUrl().getApiKey(), 0);
