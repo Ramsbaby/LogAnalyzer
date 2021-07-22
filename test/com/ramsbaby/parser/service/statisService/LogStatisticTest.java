@@ -4,7 +4,7 @@ import com.ramsbaby.parser.common.type.StatusCode;
 import com.ramsbaby.parser.model.LogModel;
 import com.ramsbaby.parser.service.ioService.LogReader;
 import com.ramsbaby.parser.service.parceService.LogParser;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -20,10 +20,10 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date : 2021-07-23 오전 2:45
  */
 class LogStatisticTest {
-    private Map<StatusCode, List<LogModel>> logMaps;
+    private static Map<StatusCode, List<LogModel>> logMaps;
 
-    @BeforeEach
-    void setUp() throws IOException, ParseException {
+    @BeforeAll
+    static void setUp() throws IOException, ParseException {
         //first given
         String str = new LogReader().readLog("");
         LogParser logParcer = new LogParser<StatusCode, List<LogModel>>();
