@@ -6,10 +6,10 @@ import com.ramsbaby.parser.model.LogModel;
 import java.util.List;
 import java.util.Map;
 
- /**
-  * @name : Statistic.java
-  * @date : 2021-07-22 오후 3:59
-  * @author : RAMSBABY
+/**
+ * @author : RAMSBABY
+ * @name : Statistic.java
+ * @date : 2021-07-22 오후 3:59
  **/
 public interface Statistic {
     String getMaxApiKey(Map<StatusCode, List<LogModel>> logMaps);

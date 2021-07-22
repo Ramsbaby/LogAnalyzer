@@ -12,7 +12,7 @@ import lombok.Getter;
 public enum StatusCode {
     ERROR(10), SUCCESS(200), NOT_FOUND(404);
 
-    private int status;
+    private final int status;
 
     StatusCode(int status) {
         this.status = status;

@@ -34,14 +34,19 @@ public class UrlModel {
 
         serviceID = url.getPath().split("/")[2];
 
-        queryParam = Optional.ofNullable(url.getQuery()).orElseGet(() -> null);
+        //serviceId 예외처리
+        if (serviceID.contains("&") || serviceID.contains("=")) serviceID = null;
 
-        if (queryParam == null) {
+        queryParam = Optional.ofNullable(url.getQuery()).orElse(null);
 
-        } else if (queryParam != null) {
+        if (queryParam != null) {
             if (url.getQuery().split("&")[0].split("=")[0].equals("apikey") == false) // apikey가 없는 경우
-                apiKey = null;
-            else {
+            {
+            }
+            else if (url.getQuery().split("&")[1].split("=")[0].equals("q") == false) {// apikey가 있고, 검색어(q)가 잘못된 경우
+                apiKey = url.getQuery().split("&")[0].split("=")[1];
+                queryParam = null;
+            } else {// 그 이외의 경우
                 apiKey = url.getQuery().split("&")[0].split("=")[1];
             }
         }

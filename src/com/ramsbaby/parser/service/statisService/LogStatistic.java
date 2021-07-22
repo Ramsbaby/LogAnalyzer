@@ -16,24 +16,19 @@ public class LogStatistic implements Statistic {
     private final int RANK_NUMBER = 3;
 
     // Comparator 정의
-    Comparator<Map.Entry<String, Integer>> comparator = new Comparator<Map.Entry<String, Integer>>() {
-        @Override
-        public int compare(Map.Entry<String, Integer> e1, Map.Entry<String, Integer> e2) {
-            return e1.getValue().compareTo(e2.getValue());
-        }
-    };
+    Comparator<Map.Entry<String, Integer>> comparator = Map.Entry.comparingByValue();
 
     /**
      * 최다호출된 apikey를 찾는다.
      *
-     * @param logMaps
-     * @return
+     * @param logMaps 로그파일 데이터
+     * @return String 최다호출APIKEY
      */
     @Override
     public String getMaxApiKey(Map<StatusCode, List<LogModel>> logMaps) {
         HashMap<String, Integer> successApikeyMap = new HashMap<>();
 
-        logMaps.get(StatusCode.SUCCESS).stream().forEach(item -> {
+        logMaps.get(StatusCode.SUCCESS).forEach(item -> {
             String apikey = item.getUrl().getApiKey();
             successApikeyMap.put(apikey, successApikeyMap.getOrDefault(item.getUrl().getApiKey(), 0) + 1);
         });
@@ -46,15 +41,15 @@ public class LogStatistic implements Statistic {
     /**
      * 최다 호출 상위 3개의 serviceId와 갯수를 센다.
      *
-     * @param logMaps
-     * @return
+     * @param logMaps 로그파일 데이터
+     * @return Map<String, Integer> 최다 호출 상위 3개의 serviceId와 갯수
      */
     @Override
     public Map<String, Integer> getTop3ServiceIdAndCnt(Map<StatusCode, List<LogModel>> logMaps) {
         HashMap<String, Integer> successServiceIdMap = new HashMap<>();
         LinkedHashMap<String, Integer> resultMap = new LinkedHashMap<>();
 
-        logMaps.get(StatusCode.SUCCESS).stream().forEach(item -> {
+        logMaps.get(StatusCode.SUCCESS).forEach(item -> {
             String serviceId = item.getUrl().getServiceID();
             successServiceIdMap.put(serviceId, successServiceIdMap.getOrDefault(item.getUrl().getServiceID(), 0) + 1);
         });
@@ -71,8 +66,8 @@ public class LogStatistic implements Statistic {
     /**
      * 웹 브라우저별 비율 계산
      *
-     * @param logMaps
-     * @return
+     * @param logMaps 로그파일 데이터
+     * @return Map<String, Double> 웹 브라우저별 비율
      */
     @Override
     public Map<String, Double> getRateWebBrowser(Map<StatusCode, List<LogModel>> logMaps) {
@@ -80,7 +75,7 @@ public class LogStatistic implements Statistic {
         Map<String, Double> resultMap = new LinkedHashMap<>();
         int successLogSize = logMaps.get(StatusCode.SUCCESS).size();
 
-        logMaps.get(StatusCode.SUCCESS).stream().forEach(item -> {
+        logMaps.get(StatusCode.SUCCESS).forEach(item -> {
             String webBrowser = item.getWebBrower().toString();
             successWebBrowserMap.put(webBrowser, successWebBrowserMap.getOrDefault(item.getWebBrower().toString(), 0) + 1);
         });
@@ -89,7 +84,7 @@ public class LogStatistic implements Statistic {
 
         listKeySet = listKeySet.stream().sorted((o1, o2) -> o2.getValue().compareTo(o1.getValue())).collect(Collectors.toList());
 
-        listKeySet.stream().forEach(item -> resultMap.put(item.getKey(), (double) item.getValue() / (double) successLogSize * 100));
+        listKeySet.forEach(item -> resultMap.put(item.getKey(), (double) item.getValue() / (double) successLogSize * 100));
 
         return resultMap;
     }

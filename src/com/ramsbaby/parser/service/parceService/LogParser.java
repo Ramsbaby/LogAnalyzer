@@ -13,14 +13,14 @@ import java.util.Map;
 
 /**
  * @author : RAMSBABY
- * @name : LogParcer.java
+ * @name : LogParser.java
  * @date : 2021-07-21 오전 1:53
  * 읽어들인 로그파일을 MAP형태로 변환
  **/
 @NoArgsConstructor
-public class LogParcer<K, V> implements Parcer<K, V> {
+public class LogParser<K, V> implements Parser<K, V> {
     @Override
-    public Map<K, List<V>> parce(String log) throws MalformedURLException, ParseException {
+    public Map<K, List<V>> parse(String log) throws MalformedURLException, ParseException {
         Map<K, List<V>> readLogMap = new HashMap<>();
 
         String[] logLine = log.split("\n");

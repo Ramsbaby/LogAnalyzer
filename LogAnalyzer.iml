@@ -4,18 +4,35 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-          <library>
-            <CLASSES>
-              <root url="file://$MODULE_DIR$/libs" />
-            </CLASSES>
-            <JAVADOC />
-            <SOURCES />
-            <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
-          </library>
-        </orderEntry>
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library name="JUnit5.4">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/junit-jupiter-5.4.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/junit-jupiter-api-5.4.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/apiguardian-api-1.0.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/opentest4j-1.1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/junit-platform-commons-1.4.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/junit-jupiter-params-5.4.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/junit-jupiter-engine-5.4.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/libs/junit-platform-engine-1.4.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

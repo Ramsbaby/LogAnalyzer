@@ -36,6 +36,7 @@ public class LogModel {
         StatusCode statusCode = StatusCode.valueOf(Integer.parseInt(eachLog[0]));
         UrlModel urlModel = UrlModel.create(eachLog[1]);
 
+        assert statusCode != null;
         return new LogModel(statusCode, urlModel, WebBrowser.valueOf(eachLog[2]), date);
     }
 
