@@ -61,7 +61,7 @@ public class UrlModel {
     }
 
     /**
-     * apikey와 queryParam 유효성체크
+     * apikey, queryParam 유효성 검사
      *
      * @param queryParam url 객체의 queryParam
      * @param url        로그모델의 url 객체
@@ -72,7 +72,6 @@ public class UrlModel {
         String validApikey = null;
         String validQueryParam = null;
 
-        //queryParam validatition
         if (queryParam != null) {//queryParam이 존재하면 apikey를 추출
             boolean isApikeyExist = url.getQuery().split("&")[0].split("=")[0].equals("apikey");
 
