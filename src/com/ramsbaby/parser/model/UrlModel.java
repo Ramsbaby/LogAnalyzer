@@ -80,11 +80,9 @@ public class UrlModel {
                 boolean isQParamExist = url.getQuery().split("&")[1].split("=")[0].equals("q");
 
                 if (isQParamExist == false) {// apikey가 있고, 검색어(q)가 잘못된 경우
-                    //apiKey
                     validApikey = url.getQuery().split("&")[0].split("=")[1];
                     validQueryParam = null;
                 } else {// apikey와 검색어(q)가 정상인 경우
-                    //apiKey
                     validApikey = url.getQuery().split("&")[0].split("=")[1];
                     validQueryParam = queryParam;
                 }
