@@ -60,6 +60,8 @@
     - parse
       - LogParser : 입력받은 로그파일 데이터들을 Map형태로 변환
 
+<br>
+    
 ## 기타
 * input.log 파일은 root 폴더 밑에 존재합니다.
 * output.log 파일은 root 폴더 밑에 생성됩니다.
