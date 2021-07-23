@@ -27,16 +27,16 @@ public class UrlModel {
     private String queryParam;
 
     /**
-     * 입력받은 URL을 대상으로 정상URL여부 판단(생성자+필터)
+     * 입력받은 URL 대상으로 정상URL여부 판단(생성자+필터)
      *
-     * @param urlStr 로그의 URL원본
+     * @param urlStr 로그의 URL
      * @return UrlModel
      */
     public static UrlModel create(String urlStr) throws MalformedURLException {
-        String urlBody = null;
-        String serviceID = null;
-        String queryParam = null;
-        String apiKey = null;
+        String urlBody;
+        String serviceID;
+        String queryParam;
+        String apiKey;
 
         URL url = new URL(urlStr);
 
@@ -65,7 +65,7 @@ public class UrlModel {
      *
      * @param queryParam url 객체의 queryParam
      * @param url        로그모델의 url 객체
-     * @return 유효성체크 후 반환되는 apikey와 queryParam
+     * @return 유효성체크 후 반환되는 apikey, queryParam
      */
     public static Map<String, String> validateQueryParam(String queryParam, URL url) {
         Map<String, String> resultMap = new HashMap<>();
@@ -75,14 +75,14 @@ public class UrlModel {
         if (queryParam != null) {//queryParam이 존재하면 apikey를 추출
             boolean isApikeyExist = url.getQuery().split("&")[0].split("=")[0].equals("apikey");
 
-            if (isApikeyExist == true) {// apikey가  있는 경우 검색어(q)를 추출
+            if (isApikeyExist) {// apikey가  있는 경우 검색어(q)를 추출
                 boolean isQParamExist = url.getQuery().split("&")[1].split("=")[0].equals("q");
 
-                if (isQParamExist == false) {// apikey가 있고, 검색어(q)가 잘못된 경우
-                    validApikey = url.getQuery().split("&")[0].split("=")[1];
+                validApikey = url.getQuery().split("&")[0].split("=")[1];
+
+                if (!isQParamExist) {// apikey가 있고, 검색어(q)가 잘못된 경우
                     validQueryParam = null;
                 } else {// apikey와 검색어(q)가 정상인 경우
-                    validApikey = url.getQuery().split("&")[0].split("=")[1];
                     validQueryParam = queryParam;
                 }
             }
