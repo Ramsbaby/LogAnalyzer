@@ -21,15 +21,11 @@ public class LogWriter {
      *
      * @param outputStr 가공된 데이터
      */
-    public void writeLog(String outputStr) {
+    public void writeLog(String outputStr) throws IOException {
         File file = new File(OUTPUT_FILENAME);
 
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-            writer.write(outputStr);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.write(outputStr);
+        writer.close();
     }
 }
