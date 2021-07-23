@@ -55,7 +55,6 @@ class UrlModelTest {
         //given
         String url = "http://apis.daum.net/search/knowledge?aaaapikey=23jf&q=daum";
         String serviceId = "knowledge";
-        String queryParam = "aaaapikey=23jf&q=daum";
 
         //when
         UrlModel urlModel = UrlModel.create(url);
@@ -64,7 +63,7 @@ class UrlModelTest {
         assertEquals(urlModel.getUrlBody(), url);
         assertEquals(urlModel.getServiceID(), serviceId);
         assertNull(urlModel.getApiKey());
-        assertEquals(urlModel.getQueryParam(), queryParam);
+        assertNull(urlModel.getQueryParam());
     }
 
     @Test
